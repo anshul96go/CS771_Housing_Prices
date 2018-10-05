@@ -14,7 +14,7 @@ Hemanth Bollamreddi
 Navanya Sharma  
 Pawan Harendra Mishra
 
-Colaboration
+Collaboration
 ------------
 
 1. Clone and enter into the repository  
