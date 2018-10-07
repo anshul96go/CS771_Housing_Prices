@@ -30,6 +30,7 @@ Omit the `-b` flag if the branch already exists
 Do not make a new branch for everytime some code is to be added or modified
 
 3. Access and upload data from drive (please add link here)
+https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
 
 Goal
 ----
@@ -41,3 +42,9 @@ Code
 ----
 
 Update code details here. Remove template message post completion of project.
+
+Data
+-----
+Following is the link for data:
+https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
+I haven't just downloaded and put it as the website also explains the variables.
