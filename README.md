@@ -44,4 +44,21 @@ Data is available [here](https://www.kaggle.com/c/house-prices-advanced-regressi
 Code
 ----
 
+### Data Cleaning
+
+See file **data_cleaning.py**  
+Edit the filenames (with location) of the train and test raw data files, in the header  
+The program replaces missing data of certain features with 0, wheres drops the entire data point for certain other features. Categorical (nominal and ordinal data) are one hot encoded (converted to dummy/indicator variables)  
+The program saves the cleaned data in the current directory
+
+
+#### Requirement
+
+* python 3.6 or higher
+* pandas
+
+### Handling Missing Data
+
+Will be updated later
+
 Update code details here. Remove template message post completion of project.
