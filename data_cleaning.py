@@ -82,6 +82,8 @@ def clean_train_data():
     print("total clean train data", clean_data)
     # save clean training data
     df.to_csv("clean_train.csv")
+    correlation = train_df.corr()[dependant_variable]
+    correlation.to_csv("correlation.csv")
     return df
 
 def clean_test_data():

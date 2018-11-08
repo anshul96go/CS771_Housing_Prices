@@ -39,7 +39,10 @@ Use various machine learning models like support vector machines, regression, no
 
 Data
 -----
-Data is available [here](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
+The Raw Data is available [here](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)  
+Results and Outputs can be found [here](https://drive.google.com/drive/folders/1W2xhJBTJ_nndlCDLJPFl-mL6uXBBLkCw?usp=sharing)
+
+Add links here
 
 Code
 ----
@@ -49,7 +52,8 @@ Code
 See file **data_cleaning.py**  
 Edit the filenames (with location) of the train and test raw data files, in the header  
 The program replaces missing data of certain features with 0, wheres drops the entire data point for certain other features. Categorical (nominal and ordinal data) are one hot encoded (converted to dummy/indicator variables)  
-The program saves the cleaned data in the current directory
+The program saves the cleaned data in the current directory  
+The program also computes the correlation of features with dependant variable using the training data and saves the result in the current directory  
 
 
 #### Requirement
