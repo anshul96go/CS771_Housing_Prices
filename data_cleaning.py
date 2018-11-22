@@ -3,8 +3,8 @@ from pandas.api.types import CategoricalDtype
 
 # location of data files
 # verify locations before running the code
-train_file = "../data/train.csv"
-test_file = "../data/test.csv"
+train_file = "data/train.csv"
+test_file = "data/test.csv"
 
 # variables' definition
 dependant_variable = 'SalePrice'
