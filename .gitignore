@@ -1,4 +1,3 @@
 data_description.txt
 correlation.csv
-clean_test.csv
-clean_train.csv
+data/
