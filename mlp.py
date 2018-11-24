@@ -20,8 +20,8 @@ hidden_layer_sizes = [[36], [48,24], [54,36,18]]
 
 def grid_search(X_train, y_train):
     reg = MLPRegressor(max_iter=10000, early_stopping=False, solver='adam', activation='relu')
-    parameters = {'alpha':alphas, 'hidden_layer_sizes':hidden_layer_sizes}
-    cv_estimator = GridSearchCV(reg, param_grid=parameters, cv=10, verbose=1, n_jobs=-1)
+    parameters = {'alpha':alphas, 'hidden_layer_sizes':hidden_layer_sizes[1:2]}
+    cv_estimator = GridSearchCV(reg, param_grid=parameters, cv=5, verbose=1, n_jobs=-1)
     cv_estimator.fit(X_train, y_train)
     print(cv_estimator.best_params_)
     return cv_estimator.best_params_
@@ -29,7 +29,7 @@ def grid_search(X_train, y_train):
 def nn_regression(X_train, X_validate, y_train, y_validate, params):
     reg = MLPRegressor(hidden_layer_sizes=params['hidden_layer_sizes'],
                         max_iter=10000, alpha=params['alpha'],
-                        early_stopping=True,
+                        early_stopping=False,
                         solver='adam',
                         activation='relu')
     reg.fit(X_train, y_train)
@@ -48,7 +48,8 @@ scaler = MinMaxScaler()
 scaler.fit(X_train)
 X_train = scaler.transform(X_train)
 X_validate = scaler.transform(X_validate)
-best_params = grid_search(X_train, y_train)
+# best_params = grid_search(X_train, y_train)
+best_params = {'alpha':alphas[2], 'hidden_layer_sizes':hidden_layer_sizes[1]}
 y_pred, rmse = nn_regression(X_train, X_validate, y_train, y_validate, best_params)
 
 with open(saveName+'_'+'results.txt', 'w') as f:
