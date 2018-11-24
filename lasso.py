@@ -39,7 +39,7 @@ def custom_plot(column, y_pred, y_validate, x):
     plt.savefig(imagedir+saveName+'_'+column+'.png')
     plt.close()
 
-data = pd.read_csv(data_file)
+data = pd.read_csv(data_file, index_col='Id')
 X = data.drop('SalePrice', axis=1).values
 columns = data.drop('SalePrice', axis=1).columns.values
 y = data['SalePrice'].values

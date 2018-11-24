@@ -1,9 +1,8 @@
-Number of features: 330
-Features with non zero weight: 118
+Number of features: 329
+Features with non zero weight: 114
 Best regularization parameter: 100.0
-Root Mean Squared Error: 31700.29477445186
+Root Mean Squared Error: 34382.96742696756
 Selected Columns:
-Id
 LotFrontage
 OverallQual
 OverallCond
@@ -17,7 +16,6 @@ TotalBsmtSF
 LowQualFinSF
 GrLivArea
 BsmtFullBath
-BsmtHalfBath
 FullBath
 HalfBath
 BedroomAbvGr
@@ -33,24 +31,20 @@ EnclosedPorch
 ScreenPorch
 PoolArea
 MSSubClass_20
-MSSubClass_50
 MSSubClass_60
+MSSubClass_120
 MSSubClass_160
 MSZoning_FV
 MSZoning_RL
-MSZoning_RM
-Alley_Grvl
 LotShape_IR1
 LotShape_IR2
 LandContour_Lvl
 LandContour_Bnk
 LandContour_HLS
 LandContour_Low
-LotConfig_Inside
 LotConfig_CulDSac
 LotConfig_FR2
 LandSlope_Mod
-LandSlope_Sev
 Neighborhood_Crawfor
 Neighborhood_NoRidge
 Neighborhood_Mitchel
@@ -60,26 +54,22 @@ Neighborhood_OldTown
 Neighborhood_BrkSide
 Neighborhood_NridgHt
 Neighborhood_NAmes
-Neighborhood_SawyerW
+Neighborhood_IDOTRR
 Neighborhood_Edwards
-Neighborhood_Timber
 Neighborhood_StoneBr
 Condition1_Norm
+Condition1_RRAn
 Condition2_PosN
 BldgType_1Fam
+BldgType_Twnhs
 HouseStyle_2Story
 HouseStyle_1Story
-HouseStyle_SLvl
-RoofStyle_Gable
 RoofMatl_WdShngl
 RoofMatl_ClyTile
-Exterior1st_MetalSd
 Exterior1st_Wd Sdng
 Exterior1st_HdBoard
 Exterior1st_BrkFace
-Exterior1st_CemntBd
 Exterior2nd_VinylSd
-Exterior2nd_Wd Sdng
 Exterior2nd_Plywood
 MasVnrType_BrkFace
 MasVnrType_Stone
@@ -93,30 +83,36 @@ Foundation_BrkTil
 BsmtQual_Ex
 BsmtQual_TA
 BsmtCond_TA
-BsmtCond_Fa
 BsmtExposure_No
 BsmtExposure_Gd
-BsmtExposure_Mn
 BsmtFinType1_GLQ
 BsmtFinType1_ALQ
 BsmtFinType1_Unf
-BsmtFinType1_Rec
+BsmtFinType1_BLQ
 BsmtFinType1_LwQ
-Heating_GasA
+BsmtFinType2_Rec
+BsmtFinType2_BLQ
 HeatingQC_Ex
-HeatingQC_Gd
-CentralAir_N
+HeatingQC_TA
 KitchenQual_TA
 KitchenQual_Ex
 Functional_Typ
+FireplaceQu_Ex
 FireplaceQu_Gd
-FireplaceQu_NA
 GarageType_BuiltIn
+GarageType_NA
 GarageFinish_RFn
+GarageFinish_Unf
 GarageFinish_Fin
-GarageQual_TA
+GarageFinish_NA
 GarageQual_Fa
+GarageQual_NA
+GarageCond_TA
+GarageCond_Fa
+GarageCond_NA
 PavedDrive_Y
+PoolQC_Gd
+Fence_GdPrv
 SaleType_WD
 SaleType_New
 SaleCondition_Abnorml
