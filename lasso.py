@@ -6,15 +6,19 @@ from sklearn.linear_model import LassoCV
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
+import os
 
-saveName = "Lasso"
+saveName = "lasso"
 data_file = "data/clean_train.csv"
 alphas = [0.01, 0.1, 1, 10, 100, 1000, 10000]
+
+imagedir = 'images/'
+if not os.path.exists(imagedir):
+    os.makedirs(imagedir)
 
 def cv_estimator(X, y):
     reg = LassoCV(cv=10, verbose=0, alphas=alphas, max_iter=100000).fit(X,y)
     print("alpha:",reg.alpha_)
-    # print("coefficients:", reg.coef_)
     return reg.alpha_
 
 def lasso_regression(X_train, X_validate, y_train, y_validate, alpha):
@@ -23,10 +27,28 @@ def lasso_regression(X_train, X_validate, y_train, y_validate, alpha):
     y_pred = reg.predict(X_validate)
     mse = mean_squared_error(y_validate,y_pred)
     print("RMSE:", math.sqrt(mse))
+    return reg.coef_, y_pred
+
+def custom_plot(column, y_pred, y_validate, x):
+    plt.figure(figsize=[15,10])
+    plt.scatter(x, y_pred, color='r', label="Regression Line")
+    plt.scatter(x, y_validate, color='g', label="Sales Price")
+    plt.legend()
+    plt.title(saveName+' '+column)
+    plt.savefig(imagedir+saveName+'_'+column+'.png')
+    plt.close()
 
 data = pd.read_csv(data_file)
 X = data.drop('SalePrice', axis=1).values
+columns = data.drop('SalePrice', axis=1).columns.values
 y = data['SalePrice'].values
 X_train, X_validate, y_train, y_validate = train_test_split(X,y,test_size=0.2)
 alpha = cv_estimator(X_train,y_train)
-lasso_regression(X_train, X_validate, y_train, y_validate, alpha)
+w, y_pred = lasso_regression(X_train, X_validate, y_train, y_validate, alpha)
+print(columns.shape, w.shape, X_validate.shape)
+count = 0
+for i in range(len(w)):
+    if abs(int(w[i])) > 0:
+        custom_plot(columns[i], y_pred, y_validate, X_validate[:,i])
+        count+=1
+print(count)
