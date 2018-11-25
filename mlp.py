@@ -39,6 +39,17 @@ def nn_regression(X_train, X_validate, y_train, y_validate, params):
     print("RMSE:", rmse)
     return y_pred, rmse
 
+def custom_plot(name, y_pred, y_validate, x):
+    plt.figure(figsize=[15,10])
+    plt.scatter(x, y_pred, color='r', label="Predicted Points")
+    plt.scatter(x, y_validate, color='g', label="Sales Price")
+    plt.legend()
+    plt.xticks(x, [])
+    plt.grid(True, axis='both', linewidth=0.1)
+    plt.title(saveName+' '+name)
+    plt.savefig(imagedir+saveName+'_'+name+'.png')
+    plt.close()
+
 data = pd.read_csv(data_file)
 columns = data.drop('SalePrice', axis=1).columns.values
 X = data.drop('SalePrice', axis=1).values
@@ -51,6 +62,9 @@ X_validate = scaler.transform(X_validate)
 # best_params = grid_search(X_train, y_train)
 best_params = {'alpha':alphas[2], 'hidden_layer_sizes':hidden_layer_sizes[1]}
 y_pred, rmse = nn_regression(X_train, X_validate, y_train, y_validate, best_params)
+
+custom_plot('Prediction', y_pred, y_validate, range(1,len(y_pred)+1))
+custom_plot('Prediction_Magnified', y_pred[20:50], y_validate[20:50], range(1,len(y_pred[20:50])+1))
 
 with open(saveName+'_'+'results.txt', 'w') as f:
     f.write('Number of features: ' + str(X.shape[1]) + '\n')
