@@ -1,4 +1,4 @@
 Number of features: 71
 Best regularization parameter: 0.01
 Hidden Layer Sizes: 48 24 
-Root Mean Squared Error: 32579.207892354723
+Root Mean Squared Error: 25611.92623311382
