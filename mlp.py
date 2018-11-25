@@ -9,7 +9,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import mean_squared_error
 import math
 
-imagedir = 'images/'
+imagedir = 'plots/'
 if not os.path.exists(imagedir):
     os.makedirs(imagedir)
 

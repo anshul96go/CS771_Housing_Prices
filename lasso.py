@@ -13,7 +13,7 @@ data_file = "data/clean_train.csv"
 selected_features_file = "data/selected_features.csv"
 alphas = [0.01, 0.1, 1, 10, 100, 1000, 10000]
 
-imagedir = 'images/'
+imagedir = 'plots/'
 if not os.path.exists(imagedir):
     os.makedirs(imagedir)
 
