@@ -6,14 +6,20 @@ xt=[ones(290,1),k(1162:1451,1:19),k(1162:1451,21:72)];
 
 l=[0:0.1:5,5:1:100];
 mse=zeros(size(l,2),1);
+r=zeros(size(l,2),1);
 for i=1:1:size(l,2)
 b=(x'*x+l(i)*eye(72))^-1*x'*y;
+ssr=sum((x*b-yb*(ones(1162,1))).^2);
+sst=sum((y-yb*(ones(1162,1))).^2);
+r(i)=ssr/sst;
 mse(i)=sqrt(sum((xt*b-yt).^2)/290);
 end
 yb=mean(y);
-ssr=sum((x*b-yb*(ones(1162,1))).^2);
-sst=sum((y-yb*(ones(1162,1))).^2);
-r=ssr/sst;
-plot(l,mse)
+a=figure; 
+a=plot(l,mse);
 xlabel('lambda')
-ylabel('standard deviation')
+ylabel('Root Mean Square Error')
+b=figure; 
+b=plot(l,r);
+xlabel('lambda')
+ylabel('R Squared')
