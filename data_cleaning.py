@@ -1,8 +1,13 @@
 import pandas as pd
 from pandas.api.types import CategoricalDtype
+import os
 
 # location of data files
 # verify locations before running the code
+dataDir = 'data/'
+if not os.path.exists(dataDir):
+    os.makedirs(dataDir)
+
 train_file = "data/train.csv"
 test_file = "data/test.csv"
 
