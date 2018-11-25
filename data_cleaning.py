@@ -81,9 +81,9 @@ def clean_train_data():
     print("training data cleaned with dropout of", total_data - clean_data)
     print("total clean train data", clean_data)
     # save clean training data
-    df.to_csv("clean_train.csv")
-    correlation = train_df.corr()[dependant_variable]
-    correlation.to_csv("correlation.csv")
+    df.to_csv("data/clean_train.csv")
+    correlation = df.corr()[dependant_variable]
+    correlation.to_csv("data/correlation.csv")
     return df
 
 def clean_test_data():
@@ -106,7 +106,7 @@ def clean_test_data():
     print("testing data cleaned with dropout of", total_data - clean_data)
     print("total clean test data", clean_data)
     # save clean testing data
-    df.to_csv("clean_test.csv")
+    df.to_csv("data/clean_test.csv")
     return df
 
 train_df = clean_train_data()
