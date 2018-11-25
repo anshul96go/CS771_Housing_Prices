@@ -8,6 +8,7 @@ from sklearn.neural_network import MLPRegressor
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import mean_squared_error
 import math
+from sklearn.metrics import r2_score
 
 imagedir = 'plots/'
 if not os.path.exists(imagedir):
@@ -34,10 +35,11 @@ def nn_regression(X_train, X_validate, y_train, y_validate, params):
                         activation='relu')
     reg.fit(X_train, y_train)
     y_pred = reg.predict(X_validate)
-    mse = mean_squared_error(y_validate,y_pred)
-    rmse = math.sqrt(mse)
+    r2 = r2_score(y_validate, y_pred)
+    rmse = math.sqrt(mean_squared_error(y_validate,y_pred))
     print("RMSE:", rmse)
-    return y_pred, rmse
+    print("R2:", r2)
+    return y_pred, rmse, r2
 
 def custom_plot(name, y_pred, y_validate, x):
     plt.figure(figsize=[15,10])
@@ -61,7 +63,7 @@ X_train = scaler.transform(X_train)
 X_validate = scaler.transform(X_validate)
 # best_params = grid_search(X_train, y_train)
 best_params = {'alpha':alphas[2], 'hidden_layer_sizes':hidden_layer_sizes[1]}
-y_pred, rmse = nn_regression(X_train, X_validate, y_train, y_validate, best_params)
+y_pred, rmse, r2 = nn_regression(X_train, X_validate, y_train, y_validate, best_params)
 
 custom_plot('Prediction', y_pred, y_validate, range(1,len(y_pred)+1))
 custom_plot('Prediction_Magnified', y_pred[20:50], y_validate[20:50], range(1,len(y_pred[20:50])+1))
@@ -74,3 +76,4 @@ with open(saveName+'_'+'results.txt', 'w') as f:
         f.write(str(num)+' ')
     f.write('\n')
     f.write('Root Mean Squared Error: ' + str(rmse) + '\n')
+    f.write('R2 Score: ' + str(r2) + '\n')
