@@ -65,4 +65,36 @@ The program also computes the correlation of features with dependant variable us
 
 Will be updated later
 
+### Lasso Regression
+
+See file **lasso.py**  
+All the features are used for lasso regression  
+The training and test data has been divided into ratio of 8:2  
+The program uses cross validation to search for best regularization parameters from the list of parameters  
+The results are stored in **lasso_results.txt**  
+The features with non zero weights and the featuers with non zero weights which are also the selectected features based on correlation are also listed in the data  
+
+#### Requirement
+
+* python 3.6 or higher
+* pandas
+* numpy
+* matplotlib
+* scikit-learn
+
+### Multi-layered Perceptron
+See file **mlp.py**  
+Only the features selected based on correlation are used for mlp regression  
+The training and test data has been divided into ratio of 8:2  
+The program uses cross validation to search for best regularization parameters and hidden layer sized from the list of parameters  
+The results are stored in **mlp_results.txt**  
+
+#### Requirement
+
+* python 3.6 or higher
+* pandas
+* numpy
+* matplotlib
+* scikit-learn
+
 Update code details here. Remove template message post completion of project.
