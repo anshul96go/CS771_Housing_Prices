@@ -114,5 +114,8 @@ def clean_test_data():
     df.to_csv("data/clean_test.csv")
     return df
 
+print("number of integral variables:", len(integral_variables))
+print("number of time variables:", len(time_variables))
+print("number of categorical variables:", len(nominal_variables_values))
 train_df = clean_train_data()
 test_df = clean_test_data()
