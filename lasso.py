@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 import os
+from sklearn.metrics import r2_score
 
 saveName = "lasso"
 data_file = "data/clean_train.csv"
@@ -26,10 +27,10 @@ def lasso_regression(X_train, X_validate, y_train, y_validate, alpha):
     reg = Lasso(alpha=alpha, max_iter=100000)
     reg.fit(X_train,y_train)
     y_pred = reg.predict(X_validate)
-    mse = mean_squared_error(y_validate,y_pred)
-    rmse = math.sqrt(mse)
+    r2 = r2_score(y_validate, y_pred)
+    rmse = math.sqrt(mean_squared_error(y_validate,y_pred))
     print("RMSE:", rmse)
-    return reg.coef_, y_pred, rmse
+    return reg.coef_, y_pred, rmse, r2
 
 def custom_plot(name, y_pred, y_validate, x):
     plt.figure(figsize=[15,10])
@@ -48,7 +49,7 @@ columns = data.drop('SalePrice', axis=1).columns.values
 y = data['SalePrice'].values
 X_train, X_validate, y_train, y_validate = train_test_split(X,y,test_size=0.2)
 alpha = cv_estimator(X_train,y_train)
-w, y_pred, rmse = lasso_regression(X_train, X_validate, y_train, y_validate, alpha)
+w, y_pred, rmse, r2 = lasso_regression(X_train, X_validate, y_train, y_validate, alpha)
 # print(columns.shape, w.shape, X_validate.shape)
 selected_columns = []
 selected_features_columns = pd.read_csv(selected_features_file).columns.values
@@ -70,6 +71,7 @@ with open(saveName+'_'+'results.txt', 'w') as f:
     f.write('Number of features with non zero weight: ' + str(len(selected_columns)) + '\n')
     f.write('Number of features with non zero weight in selected features: ' + str(len(intersection_columns)) + '\n')
     f.write('Best regularization parameter: ' + str(alpha) + '\n')
+    f.write('R2 Score: ' + str(r2) + '\n')
     f.write('Root Mean Squared Error: ' + str(rmse) + '\n\n')
     f.write('Features with non zero weight:\n')
     for column in selected_columns:

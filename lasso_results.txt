@@ -1,10 +1,12 @@
 Number of features: 329
-Number of features with non zero weight: 105
-Number of features with non zero weight in selected features: 48
+Number of features with non zero weight: 106
+Number of features with non zero weight in selected features: 50
 Best regularization parameter: 100.0
-Root Mean Squared Error: 30250.36032778419
+R2 Score: 0.8547346883429182
+Root Mean Squared Error: 31283.74272265644
 
 Features with non zero weight:
+LotFrontage
 OverallQual
 OverallCond
 MasVnrArea
@@ -30,23 +32,17 @@ OpenPorchSF
 EnclosedPorch
 3SsnPorch
 ScreenPorch
-PoolArea
 MSSubClass_20
 MSSubClass_60
-MSSubClass_80
 MSSubClass_160
 MSZoning_RL
-Alley_NA
 LotShape_IR1
 LotShape_IR2
-LandContour_Lvl
 LandContour_Bnk
 LandContour_HLS
-LandContour_Low
+LotConfig_Corner
 LotConfig_CulDSac
 LotConfig_FR2
-LandSlope_Mod
-LandSlope_Sev
 Neighborhood_Crawfor
 Neighborhood_NoRidge
 Neighborhood_Mitchel
@@ -59,59 +55,66 @@ Neighborhood_NAmes
 Neighborhood_SawyerW
 Neighborhood_IDOTRR
 Neighborhood_Edwards
-Neighborhood_Timber
 Neighborhood_StoneBr
 Condition1_Norm
-Condition1_RRAn
+Condition2_Norm
 Condition2_PosN
 BldgType_1Fam
-BldgType_Twnhs
 HouseStyle_2Story
 HouseStyle_1Story
-HouseStyle_2.5Unf
+RoofStyle_Gable
+RoofStyle_Hip
 RoofMatl_WdShngl
 RoofMatl_ClyTile
 Exterior1st_Wd Sdng
 Exterior1st_BrkFace
+Exterior1st_CemntBd
 Exterior2nd_VinylSd
 Exterior2nd_Wd Sdng
-Exterior2nd_HdBoard
-MasVnrType_BrkFace
+Exterior2nd_Plywood
+MasVnrType_BrkCmn
 MasVnrType_None
 ExterQual_TA
 ExterQual_Ex
 Foundation_PConc
 Foundation_BrkTil
 BsmtQual_Ex
-BsmtQual_TA
 BsmtCond_TA
 BsmtExposure_No
 BsmtExposure_Gd
 BsmtExposure_Mn
+BsmtExposure_Av
 BsmtFinType1_GLQ
-BsmtFinType1_Rec
-BsmtFinType1_LwQ
+BsmtFinType1_ALQ
+BsmtFinType1_Unf
+BsmtFinType2_Unf
 BsmtFinType2_BLQ
 HeatingQC_Ex
 HeatingQC_Gd
 CentralAir_N
+Electrical_SBrkr
 KitchenQual_TA
 KitchenQual_Ex
 Functional_Typ
 FireplaceQu_Ex
+GarageType_BuiltIn
 GarageType_NA
+GarageType_Basment
 GarageFinish_RFn
 GarageFinish_Unf
 GarageFinish_Fin
 GarageFinish_NA
-GarageQual_TA
 GarageQual_Fa
+GarageQual_NA
 PavedDrive_Y
+Fence_NA
+Fence_GdPrv
 SaleType_WD
-SaleType_New
 SaleCondition_Abnorml
+SaleCondition_Partial
 
 Features with non zero weights in selected features:
+LotFrontage
 OverallQual
 MasVnrArea
 BsmtFinSF1
@@ -136,27 +139,28 @@ Neighborhood_NoRidge
 Neighborhood_NridgHt
 Neighborhood_StoneBr
 HouseStyle_2Story
+RoofStyle_Gable
+RoofStyle_Hip
 Exterior2nd_VinylSd
-MasVnrType_BrkFace
 MasVnrType_None
 ExterQual_TA
 ExterQual_Ex
 Foundation_PConc
 Foundation_BrkTil
 BsmtQual_Ex
-BsmtQual_TA
 BsmtExposure_No
 BsmtExposure_Gd
 BsmtFinType1_GLQ
 HeatingQC_Ex
 CentralAir_N
+Electrical_SBrkr
 KitchenQual_TA
 KitchenQual_Ex
 FireplaceQu_Ex
+GarageType_BuiltIn
 GarageType_NA
 GarageFinish_Unf
 GarageFinish_Fin
-GarageQual_TA
 PavedDrive_Y
 SaleType_WD
-SaleType_New
+SaleCondition_Partial
